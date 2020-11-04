@@ -1,6 +1,8 @@
 .button {
     background-color: white;
-    border: none;
+    border: black;
+    border-style: solid;
+    border-width: .25px;
     color: black;
     outline: none;
     cursor: pointer;
@@ -10,4 +12,7 @@
     font-weight: bold;
     width: 150px;
     height: 40px;
+}
+.button:hover {
+    background-color: lightgrey;
 }

@@ -14,14 +14,17 @@ const { Provider } = store;
 const StoreProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {
+            case 'log_store_state':
+                console.log('Store State-', state);
+                return state;
             case 'add_item_to_cart':
-                const newState = {
+                return {
+                    ...state,
                     cart: [
-                        // ...currentcart,
+                        ...state.cart,
                         action.payload
                     ]
                 };
-                return newState;
             default:
                 throw new Error();
         }

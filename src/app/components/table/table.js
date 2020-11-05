@@ -17,8 +17,7 @@ export default function Table({ items, action, onQuantityChange }) {
                 {items.map((i) => (
                     <tr key={i.item}>
                         <td>{i.item}</td>
-                        {onQuantityChange ?
-                        (
+                        {onQuantityChange ? (
                             <td>
                                 <input
                                     value={i.quantity}
@@ -26,14 +25,15 @@ export default function Table({ items, action, onQuantityChange }) {
                                     type={'number'}
                                     className={'tableInput'}
                                 />
-                        </td>
-                        ) :
-                        (
+                            </td>
+                        ) : (
                             <td>{i.quantity}</td>
                         )}
                         <td>{i.price.toFixed(2)}</td>
                         <td>{(i.price * i.quantity).toFixed(2)}</td>
-                        <td><TextButton onClick={() => action.onClick(i)}>{action.text}</TextButton></td>
+                        <td>
+                            <TextButton onClick={() => action.onClick(i)}>{action.text}</TextButton>
+                        </td>
                     </tr>
                 ))}
             </tbody>

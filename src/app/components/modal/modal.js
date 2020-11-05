@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './modal.css'
+import './modal.css';
 
 export default function Modal({ visible, children }) {
     if (!visible) return null;

@@ -1,4 +1,4 @@
-import  React from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/header/header';
@@ -21,18 +21,18 @@ const items = [
         id: 1,
         item: 'Oranges',
         quantity: 2,
-        price: 1.5
+        price: 1.5,
     },
     {
         id: 2,
         item: 'Avacados',
         quantity: 2,
-        price: 1.5
+        price: 1.5,
     },
     {
         id: 3,
         item: 'Bananas',
         quantity: 2,
-        price: 1.5
+        price: 1.5,
     },
-]
+];

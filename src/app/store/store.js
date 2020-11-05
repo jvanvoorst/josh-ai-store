@@ -15,20 +15,20 @@ const StoreProvider = ({ children }) => {
                 return {
                     ...state,
                     modalContent: action.payload,
-                    modalVisible: true
+                    modalVisible: true,
                 };
             case 'hide_modal':
                 return {
                     ...state,
                     modalContent: null,
-                    modalVisible: false
+                    modalVisible: false,
                 };
             default:
                 throw new Error();
         }
     }, initialState);
 
-    return <Provider value={{ state, dispatch }}>{children}</Provider>
-}
+    return <Provider value={{ state, dispatch }}>{children}</Provider>;
+};
 
 export { store, StoreProvider };

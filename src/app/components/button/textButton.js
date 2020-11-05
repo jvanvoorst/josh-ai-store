@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './textButton.css'
+import './textButton.css';
 
 export default function TextButton({ children, onClick }) {
     return (

@@ -17,12 +17,12 @@ export default function LineItemModal({ item }) {
             <h1>Line Item</h1>
             <Table
                 items={[lineItem]}
-                action={{ text: 'remove', onClick: (i) => console.log('remove', i)}}
-                onQuantityChange={(e) => setlineItem({ ...lineItem, quantity: e.target.value})}
+                action={{ text: 'remove', onClick: (i) => console.log('remove', i) }}
+                onQuantityChange={(e) => setlineItem({ ...lineItem, quantity: e.target.value })}
             />
             <div className={'buttonContainer'}>
                 <Button onClick={(i) => console.log('save', i)}>Save</Button>
-                <Button onClick={() => dispatch({ type: 'hide_modal'})}>Cancel</Button>
+                <Button onClick={() => dispatch({ type: 'hide_modal' })}>Cancel</Button>
             </div>
         </div>
     );

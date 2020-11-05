@@ -9,7 +9,9 @@ import './itemView.css';
 export default function ItemView({ items }) {
     return (
         <div className={'tableContainer'}>
-            {items.map((i) => <Item key={i.id} item={i} />)}
+            {items.map((i) => (
+                <Item key={i.id} item={i} />
+            ))}
         </div>
     );
 }
@@ -28,10 +30,10 @@ function Item({ item }) {
                         const _item = {
                             item: item.item,
                             quantity: 1,
-                            price: item.price
+                            price: item.price,
                         };
 
-                        dispatch({ type: 'show_modal', payload: <LineItemModal item={_item} /> })
+                        dispatch({ type: 'show_modal', payload: <LineItemModal item={_item} /> });
                     }}
                 >
                     Add To Cart
@@ -39,5 +41,5 @@ function Item({ item }) {
                 <span>{`$ ${item.price.toFixed(2)}`}</span>
             </div>
         </div>
-    )
+    );
 }

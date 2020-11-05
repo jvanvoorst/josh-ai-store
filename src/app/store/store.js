@@ -1,11 +1,8 @@
 import React, { createContext, useReducer } from 'react';
 
 const initialState = {
-    cart: [{
-        item: 'test',
-        itemQuantity: 1,
-        itemUrl: 'something'
-    }]
+    modalVisible: false,
+    modalContent: null,
 };
 
 const store = createContext(initialState);
@@ -14,16 +11,17 @@ const { Provider } = store;
 const StoreProvider = ({ children }) => {
     const [state, dispatch] = useReducer((state, action) => {
         switch (action.type) {
-            case 'log_store_state':
-                console.log('Store State-', state);
-                return state;
-            case 'add_item_to_cart':
+            case 'show_modal':
                 return {
                     ...state,
-                    cart: [
-                        ...state.cart,
-                        action.payload
-                    ]
+                    modalContent: action.payload,
+                    modalVisible: true
+                };
+            case 'hide_modal':
+                return {
+                    ...state,
+                    modalContent: null,
+                    modalVisible: false
                 };
             default:
                 throw new Error();

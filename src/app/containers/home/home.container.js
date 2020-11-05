@@ -1,13 +1,17 @@
 import { React } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import HomeHeader from '../../components/header/homeHeader';
-import ItemTable from '../../components/table/itemTable';
+import Header from '../../components/header/header';
+import ItemView from '../../components/itemView/itemView';
+import Button from '../../components/button/button';
 
 export default function HomeContainer() {
+    const history = useHistory();
+
     return (
         <>
-            <HomeHeader />
-            <ItemTable items={items} onItemClick={(i) => console.log('itemClick', i)}/>
+            <Header button={<Button onClick={() => history.push('/cart')}>Cart</Button>}/>
+            <ItemView items={items} onItemClick={(i) => console.log('itemClick', i)}/>
         </>
     );
 }

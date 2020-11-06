@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import Button from '../button/button';
 import { store } from '../../store/store';
-import LineItemModal from '../modal/lineItemModal';
+import LineItemSaveModal from '../modal/lineItemSaveModal';
 
 import './itemView.css';
 
@@ -33,7 +33,7 @@ function Item({ item }) {
                             price: item.price,
                         };
 
-                        dispatch({ type: 'show_modal', payload: <LineItemModal item={_item} /> });
+                        dispatch({ type: 'show_modal', payload: <LineItemSaveModal item={_item} /> });
                     }}
                 >
                     Add To Cart

@@ -3,6 +3,8 @@ import React, { createContext, useReducer } from 'react';
 const initialState = {
     modalVisible: false,
     modalContent: null,
+    foodItems: [],
+    cart: []
 };
 
 const store = createContext(initialState);
@@ -23,6 +25,16 @@ const StoreProvider = ({ children }) => {
                     modalContent: null,
                     modalVisible: false,
                 };
+            case 'set_food_items':
+                return {
+                    ...state,
+                    foodItems: action.payload
+                }
+            case 'set_cart':
+                return {
+                    ...state,
+                    cart: action.payload
+                }
             default:
                 throw new Error();
         }

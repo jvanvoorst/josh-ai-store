@@ -31,9 +31,9 @@ export default function Table({ items, action, onQuantityChange }) {
                         )}
                         <td>{i.price.toFixed(2)}</td>
                         <td>{(i.price * i.quantity).toFixed(2)}</td>
-                        <td>
+                        {action ? <td>
                             <TextButton onClick={() => action.onClick(i)}>{action.text}</TextButton>
-                        </td>
+                        </td> : null}
                     </tr>
                 ))}
             </tbody>

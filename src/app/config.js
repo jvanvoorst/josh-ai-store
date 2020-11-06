@@ -1,16 +1,6 @@
 
-let APIBase;
-let socketIOEndpoint;
+export const APIBase = 'https://josh-server-vlu5i.ondigitalocean.app/api/';
+export const socketIOEndpoint = 'https://josh-server-vlu5i.ondigitalocean.app';
 
-if (process.env.deployment === 'production') {
-    APIBase = 'https://josh-server-vlu5i.ondigitalocean.app/api/';
-    socketIOEndpoint = 'https://josh-server-vlu5i.ondigitalocean.app';
-} else {
-    APIBase = 'http://localhost:3000/api/';
-    socketIOEndpoint = 'http://localhost:3000';
-}
-
-export {
-    APIBase,
-    socketIOEndpoint
-};
+// export const APIBase = 'http://localhost:3000/api/';
+// export const socketIOEndpoint = 'http://localhost:3000';

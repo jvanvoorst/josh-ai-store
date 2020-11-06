@@ -13,7 +13,7 @@ export default function HomeContainer() {
 
     return (
         <>
-            <Header button={<Button onClick={() => history.push('/cart')}>Cart</Button>} />
+            <Header button={<Button onClick={() => history.push('/cart')}>{`Cart (${state.cart.length})`}</Button>} />
             <ItemView items={state.foodItems} onItemClick={(i) => console.log('itemClick', i)} />
         </>
     );

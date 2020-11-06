@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import socketIOClient from 'socket.io-client';
+import io from 'socket.io-client';
 
 import HomeContainer from './app/containers/home/home.container';
 import CartContainer from './app/containers/cart/cart.container';
@@ -37,13 +37,20 @@ function App() {
         fetchCart();
     }, [dispatch]);
 
-    // useEffect(() => {
-    //   const socket = socketIOClient(socketIOEndpoint);
+    useEffect(() => {
+        const socket = io(socketIOEndpoint, {
+            transports: ['websocket']
+        });
 
-    //   socket.on('cart_update', (data) => {
-    //     dispatch({ type: 'set_cart', payload: data});
-    //   });
-    // })
+        socket.on('cart_update', (data) => {
+          console.log('recieved cart update', data)
+          dispatch({ type: 'set_cart', payload: data});
+        });
+
+        socket.on('reconnect_attempt', () => {
+            socket.io.opts.transports = ['polling', 'websocket'];
+        });
+    }, [dispatch]);
 
     return (
         <Router>

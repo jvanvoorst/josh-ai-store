@@ -24,6 +24,7 @@ export default function Table({ items, action, onQuantityChange }) {
                                     onChange={(e) => onQuantityChange(e)}
                                     type={'number'}
                                     className={'tableInput'}
+                                    min={'1'}
                                 />
                             </td>
                         ) : (
